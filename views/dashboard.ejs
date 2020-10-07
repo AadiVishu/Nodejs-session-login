@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .input-height {
+            height:80px;
+        }
+        .msg-box {
+            padding:20px 20px;
+            background:#0b1b274d;
+            box-shadow: 1px 2px 20px #efefef;
+            height: 250px;
+            border-radius: 10px;
+            overflow-y: scroll;
+            margin-bottom:2rem;
+        }
+        .msg-box p {
+            padding: 5px 15px;
+            border:1px solid #f2f2f2;
+            text-align:left;
+            border-radius: 4px;
+        }
+
+        
+    </style>
+</head>
+<body class="bg-dark">
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav ml-5">
+            <li class="nav-item ml-4">
+                <a class="nav-link text-warning" href="/homelogout">Home</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav mr-5 ml-auto">
+            <li class="nav-item ml-4">
+                <a class="nav-link text-warning" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <br>
+    <div class="container">
+        <div class="container mb-2">
+            <div class="col-md-8">
+                <h5 class="text-light ml-3">Hey! <span class="text-success"><%= user.username %></span></h5>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container col-md-5 mb-3">
+            <% if(success_message != '') { %>
+                <div class="alert alert-dismissible alert-success">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong> <%= success_message %></strong>
+                </div>
+            <% } %>
+        </div>
+        <div class="container msg-box text-light col-md-5">
+            <% user.messages.forEach(function(msg, index){ %>
+                <small class="text-success"><%= user.username %></small>
+            <p class="text-light"><%= msg %></p>
+            <% }) %>
+        </div>
+
+        <div class="container col-md-5 p-3">
+            <form action="/addmsg" method="POST">
+                <div class="form-group">
+                    <input class="form-control input-height p-3" name="msg" placeholder="Enter Message">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-outline-success form-control" type="submit">Add Message</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+</body>
+</html>

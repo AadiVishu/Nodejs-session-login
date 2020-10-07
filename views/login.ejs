@@ -1,0 +1,32 @@
+    <%- include('header'); -%>
+    <div class="container">
+        <div class="container col-md-6 p-5 mt-5 mb-2 bg-light">
+            <% if(success_message != '') { %>
+                <div class="alert alert-dismissible alert-success">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong> <%= success_message %></strong>
+                </div>
+            <% } %>
+            <% if(error != '') { %>
+                <div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong> <%= error %> </strong> 
+                </div>
+            <% } %>
+            <h5 class="text-success mb-3">Login</h5>
+            <form action="/login" method="POST" autocomplete="off">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="form-control btn btn-success">Submit</button>
+                </div>
+                <p>New user ? <a class="card-link" href="/register">Register Now</a> </p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

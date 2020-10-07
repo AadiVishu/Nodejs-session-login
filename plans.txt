@@ -1,0 +1,31 @@
+
+dependecies:
+    nodemon:
+    express:
+    express-session:
+    flash-content:
+    passport:
+    body-parser:
+    mongoose:
+    ejs template:
+
+create models:
+    user module:
+    message in user:
+
+create routes:
+    get:
+    post:
+    authentications:
+
+create views:
+    header page:
+    introduction:
+    registration page:
+    login page:
+    dasboard page:
+    logout functions
+    
+create index(app):
+    setup mongoose:
+
